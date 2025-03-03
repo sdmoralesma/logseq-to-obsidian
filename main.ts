@@ -344,12 +344,12 @@ async function run() {
     await Deno.writeTextFile(walkEntry.path, withoutLogbooks);
   }
 
-  if (!existsSync(".obsidian/app.json")) {
-    Deno.createSync(".obsidian/app.json");
-    Deno.writeTextFileSync(".obsidian/app.json", "{}");
+  if (!existsSync(output + ".obsidian/app.json")) {
+    Deno.createSync(output + ".obsidian/app.json");
+    Deno.writeTextFileSync(output + ".obsidian/app.json", "{}");
   }
 
-  await updateConfigForLogseqStructure(".obsidian/app.json");
+  await updateConfigForLogseqStructure(output + ".obsidian/app.json");
 }
 
 if (import.meta.main) {
